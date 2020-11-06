@@ -13,8 +13,12 @@ The function should:
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+
+function createMenuItems(name, price, category){
+  this.name = name;
+  this.price= price;
+  this.category= category;
+  return createMenuItems;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -25,6 +29,13 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+const pizza = new createMenuItems("Pizza",5,"lunch");
+const cheesecake = new createMenuItems("Cheesecake",10,"dessert");
+const bubblegum = new createMenuItems("Bubble gum",1,"candy");
+
+console.log(pizza)
+console.log(cheesecake)
+console.log(bubblegum)
 
 
 
@@ -41,13 +52,20 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
+
 export const burger = {
   name: "Burger", 
   price: 18, 
-  category: "Lunch", 
-  /*Your code here*/
-}
+  category: "Lunch",
 
+  discount: function(type){
+    if (type === "teacher" || type === "student"){
+      this.price *- .75;
+    }else {
+        this.price *- .9;
+    } return this.price
+  }
+}
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -67,7 +85,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console
 */
 
-
+console.log(reviews[i=5])
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -76,7 +94,12 @@ Using the reviews array above do the following:
   2. log the whole array to the console, make sure the new review is inside of it   
 */
 
-
+function newreview(array, name, rating, feedback){
+  array.push({name,rating,feedback})
+   return array;
+ }
+ 
+ console.log(newreview(reviews, "jake", 7, "Good friend"));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following:
@@ -84,6 +107,16 @@ Reyna's feedback is missing! Use what you know to do the following:
   2. log the reviews array to the console to check your work
 */
 
+function changereview(array, revname, rereview){
+  for (i in array){
+    if(array[i].name.includes(revname)){
+      array[i].review = rereview
+    }
+  }
+  return array;  
+}
+
+console.log(changereview(reviews , "Reyna","this place is chill with really cool people, great for getting work done on weekdays"));
 
 
 
@@ -98,10 +131,9 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(reviews,index) {
+  return `${reviews[index].name} gave the restaurant a ${reviews[index].rating} star review, and their feedback was${reviews[index].feedback}`;
 }
-
 
   
 
